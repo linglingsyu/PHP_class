@@ -38,10 +38,10 @@ for ($i=0 ; $i<10 ; $i++){
 echo "<hr>";
 echo "<table border='1px'>";
 
-for ($i=1;$i<10;$i++){
+for ($i = 1; $i < 10; $i++) {
     echo "<tr>";
-    for ($j=1;$j<10;$j++){
-        echo "<td>" . $i . "  x  " . $j . "  =  " .$i*$j . "</td>";
+    for ($j = 1; $j < 10; $j++) {
+        echo "<td>" . $i . "  x  " . $j . "  =  " . $i * $j . "</td>";
     }
     echo "</tr>";
 }
@@ -52,132 +52,26 @@ echo "<hr>";
 
 
 echo "<table border='1px'>";
-for ($i=1;$i<10;$i++){
-    echo "tr".$i;
-    if ($i==1){
-        echo "<td>"."&nbsp;"."</td>;
-    }else{
-            for ($j=1;$j<10;$j++){
-                echo  "<td>".$i*$j."</td>";
-                }
-        echo "</td>";
-         }
+
+for ($i = 0; $i < 10; $i++) {
+    echo "<tr>";
+    for ($j = 0; $j < 10 ; $j++) {
+        if ($i != 0 && $j != 0) {
+            echo "<td>"  . $i * $j . "</td>";
+        } else if ($i != 0) {
+            echo "<td>"  . $i . "</td>";
+        } else if ($j != 0) {
+            echo "<td>"  . $j . "</td>";
+        } else {
+            echo "<td> &nbsp; </td>";
+        }
+    }
+    echo "</tr>";
 }
 echo "</table>";
 
 
-?>
+echo "<hr>";
 
-<table border=1>
-    <tr>
-    <td>&nbsp;</td>
-    <td>1</td>
-    <td>2</td>
-    <td>3</td> 
-    <td>4</td>
-    <td>5</td>
-    <td>6</td> 
-    <td>7</td>
-    <td>8</td>
-    <td>9</td> 
-    </tr>
-    <tr>
-    <td>1</td>
-    <td>2</td>
-    <td>3</td> 
-    <td>4</td>
-    <td>5</td>
-    <td>6</td> 
-    <td>7</td>
-    <td>8</td>
-    <td>9</td> 
-    </tr>
-    <tr>
-    <td>1</td>
-    <td>2</td>
-    <td>3</td> 
-    <td>4</td>
-    <td>5</td>
-    <td>6</td> 
-    <td>7</td>
-    <td>8</td>
-    <td>9</td> 
-    </tr>
-    <tr>
-    <td>1</td>
-    <td>2</td>
-    <td>3</td> 
-    <td>4</td>
-    <td>5</td>
-    <td>6</td> 
-    <td>7</td>
-    <td>8</td>
-    <td>9</td> 
-    </tr>
-    <tr>
-    <td>1</td>
-    <td>2</td>
-    <td>3</td> 
-    <td>4</td>
-    <td>5</td>
-    <td>6</td> 
-    <td>7</td>
-    <td>8</td>
-    <td>9</td> 
-    </tr>
-    <tr>
-    <td>1</td>
-    <td>2</td>
-    <td>3</td> 
-    <td>4</td>
-    <td>5</td>
-    <td>6</td> 
-    <td>7</td>
-    <td>8</td>
-    <td>9</td> 
-    </tr>
-    <tr>
-    <td>1</td>
-    <td>2</td>
-    <td>3</td> 
-    <td>4</td>
-    <td>5</td>
-    <td>6</td> 
-    <td>7</td>
-    <td>8</td>
-    <td>9</td> 
-    </tr>
-    <tr>
-    <td>1</td>
-    <td>2</td>
-    <td>3</td> 
-    <td>4</td>
-    <td>5</td>
-    <td>6</td> 
-    <td>7</td>
-    <td>8</td>
-    <td>9</td> 
-    </tr>
-    <tr>
-    <td>1</td>
-    <td>2</td>
-    <td>3</td> 
-    <td>4</td>
-    <td>5</td>
-    <td>6</td> 
-    <td>7</td>
-    <td>8</td>
-    <td>9</td> 
-    </tr>
-    <tr>
-    <td>1</td>
-    <td>2</td>
-    <td>3</td> 
-    <td>4</td>
-    <td>5</td>
-    <td>6</td> 
-    <td>7</td>
-    <td>8</td>
-    <td>9</td> 
-    </tr>
-</table>
+
+
