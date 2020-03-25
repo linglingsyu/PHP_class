@@ -82,10 +82,8 @@ if($year%4 == 0 && ($year%100 !=0 || $year %400 ==0 ) ){
 }
 
 echo "<hr>";
+
 //switch 迴圈
-
-
-
 $score=88;
 $level="";
 if ($score>=90) {
@@ -114,7 +112,20 @@ switch($level){
     case "D":
         echo "用心不足，請加強";
     break;
+    default:
+
 }
+echo "<hr>";
+//三元運算子
+echo "三元運算子<br>";
+$score=88;
+echo ($score>=60)? "及格" : "不及格";
+echo "<br>";
+//也可以將其結果指定到變數內 
+$result = ($score>=60)? "及格": "不及格" ;
+echo $result;
+echo "<hr>";
+
 
 
 ?>
