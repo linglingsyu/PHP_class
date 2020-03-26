@@ -1,3 +1,20 @@
+<style>
+table{
+    border:1px solid #999;
+    padding:10px;
+}
+table td{
+    padding:5px;
+    text-align:center;
+    border:1px solid #ccc;
+}
+
+table td:first-child,table tr:first-child{
+    background-color:#ccc;
+}
+</style>
+
+
 <?php
 
 /*
@@ -72,6 +89,5 @@ echo "</table>";
 
 
 echo "<hr>";
-
 
 
