@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>學生成績查詢</title>
+    <style>
+        form{
+            display: block;
+            width: 300px;
+            height: 200px;
+            border: 1px solid #999;
+            box-shadow: 1px 1px 5px #ccc;
+            text-align: center;
+            line-height: 200px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <p>請輸入學生座號：</p>
+    <form action="score.php" method="get">
+
+        <input type="number" name="number" >
+        <input type="submit" value="查詢">
+    </form>
+    
+</body>
+</html>
