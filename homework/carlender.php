@@ -24,6 +24,18 @@
             height:80px;           
             padding: 10px;
         }
+
+        table td:first-child {
+             color:red;
+             font-weight: bold;
+        }
+
+        table td:last-child {
+             color:#00CC00;
+             font-weight: bold;
+        }
+
+
     </style>
 </head>
 
@@ -31,7 +43,6 @@
 
     <form action="carlender.php" method="get">
         請輸入年份：<input type="number" name="year">
-        請輸入月份： <input type="number" name="month" max="12" mix="1" value="1">
     </form>
 
     <table>
@@ -46,7 +57,11 @@
         </tr>
 
         <?php
-        $year = date("Y");
+        // $year = date("Y");
+
+        if(isset($_GET["year"])){
+            $year= $_GET["year"];
+        } 
         $month = date("m");
         $firstday = date("w", strtotime(date("Y-m-01"),));
         $lastday  = date("t", strtotime(date("Y-m-d")));
