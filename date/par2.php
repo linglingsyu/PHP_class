@@ -1,10 +1,20 @@
 <h4>月曆製作</h4>
-<div>
-    <form action="?" method="get">
-       請輸入年份： <input type="number" name="year" >
-        <input type="submit" value="產生年曆">
-    </form>
-</div>
+
+<?php 
+if (isset($_GET["year"])){
+    //有輸入值就用輸入的值
+    $year = $_GET["year"]; 
+}else{
+    //如果沒有就用本機當下的年度
+    $year=date("Y");
+}
+
+if (empty($_GET["year"])){
+    $year=date("Y");
+}
+
+?>
+
 
 <style>
     body {
@@ -59,13 +69,7 @@
 
 <?php
 
-if (isset($_GET["year"])){
-    //有輸入值就用輸入的值
-    $year = $_GET["year"]; 
-}else{
-    //如果沒有就用本機當下的年度
-    $year=date("Y");
-}
+
 
 echo "<div class='container'>";
 
@@ -127,5 +131,10 @@ for ($m = 1; $m < 13; $m++) {
     echo "</div>";
 }
     ?>
-
+<div>
+    <form action="?" method="get">
+       請輸入年份： <input type="number" name="year" >
+        <input type="submit" value="產生年曆">
+    </form>
+</div>
     </div>

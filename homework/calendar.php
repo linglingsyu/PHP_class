@@ -81,15 +81,21 @@
         </form>
     </div>
     <?php
-
-
-
     $firstday = date("w", strtotime(date("$year-$month-01")));
     $lastday  = date("t", strtotime(date("$year-$month-d")));
+
+    if ($month+1 >= 13 ){
+        $nM = 1;
+        $nY = $year + 1;
+    } else {
+        $nM = $month + 1;
+        $ny = $year;
+    }
+
     ?>
-    <a href="calendar.php?year=<?= $year ?>&month=<?= $month - 1 ?>">&lt;&lt;</a>
+    <a href="calendar.php?year=<?= $year ?>&month=<?= $month-1 ?>">&lt;&lt;</a>
     <span><?= $year . $month  ?></span>
-    <a href="calendar.php?year=<?= $year ?>&month=<?= $month + 1 ?>">&gt;&gt;</a>
+    <a href="calendar.php?year=<?= $year ?>&month=<?= $month+1 ?>">&gt;&gt;</a>
 
     <table>
         <tr>
