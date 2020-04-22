@@ -1,0 +1,43 @@
+body {
+  font-family: "Noto Sans TC", sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+table,
+td {
+  border: 1px solid #000;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 24px;
+}
+
+table {
+  width: 1000px;
+  height: 500px;
+}
+
+tr,
+td {
+  width: 120px;
+  height: 80px;
+  padding: 10px;
+}
+
+table td:first-child {
+  color: red;
+  font-weight: bold;
+}
+
+table td:last-child {
+  color: #00cc00;
+  font-weight: bold;
+}
+
+.container{
+    width: 1024px;
+    margin: 0 auto;
+}
+
+.form input[type="submit"] select{
+    padding:50px auto;
+}
+
