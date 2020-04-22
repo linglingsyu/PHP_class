@@ -1,25 +1,55 @@
 body {
-  font-family: "Noto Sans TC", sans-serif;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto","Noto Sans TC", sans-serif;
+  background-color:	#FFE66F;
 }
+
+.bg{
+  width: 100px;
+  color: #000;
+  text-align: right;
+}
+
+.bg_left{
+  font-size: 80px;
+}
+
+.bg_right , .bg_mid {
+  font-size: 30px;
+}
+
+
+.container{
+  width: 700px;
+  margin: 0 auto;
+  background-color:#FFF4C1;
+  border-radius: 10px;
+  padding: 30px 20px;
+  margin: 30px 30px 10px auto ;
+  border: 3px solid #000;
+
+}
+
 table,
 td {
   border: 1px solid #000;
   border-collapse: collapse;
   text-align: left;
   font-size: 24px;
+  text-align: center;
 }
 
 table {
-  width: 1000px;
-  height: 500px;
+  width: 700px;
+  height: 300px;
+  border: none;
 }
 
 tr,
 td {
-  width: 120px;
-  height: 80px;
+  width: 100px;
+  height: 50px;
   padding: 10px;
+  border: none;
 }
 
 table td:first-child {
@@ -27,17 +57,35 @@ table td:first-child {
   font-weight: bold;
 }
 
+
+
 table td:last-child {
   color: #00cc00;
   font-weight: bold;
 }
 
-.container{
-    width: 1024px;
-    margin: 0 auto;
+.today{
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-color: #FFE66F;
+  border-radius: 40px;
+  line-height: 40px;
 }
 
-.form input[type="submit"] select{
-    padding:50px auto;
+
+.btn {
+  text-align: right;
 }
+.btn li{
+  display: inline;
+}
+
+.btn a{
+  display: inline-block;
+  margin: 10px 20px;
+  text-decoration: none;
+}
+
+
 

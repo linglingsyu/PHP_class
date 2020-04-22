@@ -11,64 +11,49 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="form">
-            <form action="?" method="get">
-                <select name="year" id="">
-                    <?php
-                    if (isset($_GET["year"])) {
-                        $year =  $_GET["year"];
-                    } else {
-                        $year = date("Y");
-                    }
+    <?php
+    $this_day = date("d");
+    $this_year = date("Y");
+    $this_month = date("n");
+    if (isset($_GET["year"])) {
+        $year =  $_GET["year"];
+    } else {
+        $year = $this_year;
+    }
+    if (isset($_GET["month"])) {
+        $month =  $_GET["month"];
+    } else {
+        $month = $this_month;
+    }
 
-                    if (isset($_GET["month"])) {
-                        $month =  $_GET["month"];
-                    } else {
-                        $month = date("n");
-                    }
-                    for ($j = 100; $j >= 0; $j--) {
-                        $upY = $year - $j;
-                        echo "<option value='$upY'>" . $upY . "</option>";
-                    }
-                    echo "<option value='$year' selected>" . $year . "</option>";
-                    for ($i = 1; $i <= 100; $i++) {
-                        $nextY = $year + $i;
-                        echo "<option value='$nextY'>" . $nextY . "</option>";
-                    }
-                    ?>
-                </select>
-                <select name="month" id="">
-                    <?php
-                    for ($j = 1; $j <= $month - 1; $j++) {
-                        echo "<option value='$j'>" . $j . "</option>";
-                    }
-                    echo "<option value='$month' selected>" . $month . "</option>";
-                    for ($i = $month + 1; $i < 13; $i++) {
-                        echo "<option value='$i'>" . $i . "</option>";
-                    }
-                    ?>
-                </select>
-                <input type="submit" value="查詢">
-            </form>
-        </div>
-        
+    ?>
+    <div class="bg">
+       <span class="bg_left"><?= $month?></span>
+       <span class="bg_mid"><?= $year?></span>
+       <span class="bg_right"><?= date('F', mktime(0, 0, 0, $month)) ?></span>
+    </div>
+    <div class="container">
         <?php
         $firstday = date("w", strtotime(date("$year-$month-01")));
         $lastday  = date("t", strtotime(date("$year-$month-d")));
 
-        if ($month + 1 >= 13) {
-            $nM = 1;
-            $nY = $year + 1;
-        } else {
-            $nM = $month + 1;
-            $ny = $year;
+        if($month + 1 >= 13){
+            $mnext = 1;
+            $ynext = $year+1;
+        }else {
+            $mnext = $month + 1;
+            $ynext = $year;
+        }
+
+        if($month - 1 <= 0 ){
+            $mlast = 12;
+            $ylast = $year-1;
+        }else {
+            $mlast = $month - 1;
+            $ylast = $year;
         }
 
         ?>
-        <a href="calendar.php?year=<?= $year ?>&month=<?= $month - 1 ?>">Last month</a>
-        <span><?= $year ."年". $month ."月" ?></span>
-        <a href="calendar.php?year=<?= $year ?>&month=<?= $month + 1 ?>">Next month</a>
 
         <table>
             <tr>
@@ -80,9 +65,8 @@
                 <td>TUR</td>
                 <td>SAT</td>
             </tr>
-
             <?php
-
+            $is_this_month = ($year == $this_year && $month == $this_month);
             for ($i = 0; $i < 6; $i++) {
                 echo "<tr>";
                 for ($j = 0; $j < 7; $j++) {
@@ -90,12 +74,15 @@
                         echo "<td>";
                         echo "</td>";
                     } else {
-                        echo "<td>";
-                        $date = $i * 7 + $j + 1  - $firstday;
-                        if ($date > $lastday) {
-                            echo "";
+                        $day = $i * 7 + $j + 1  - $firstday;
+                        if ($day > $lastday) {
+                            echo "<td>";
                         } else {
-                            echo $date;
+                            if($is_this_month && ($day == $this_day)){
+                                echo "<td>" . "<span class='today'>" . $day . "</span>" ;
+                            }else{
+                                echo "<td>" . $day;
+                            }
                         }
                         echo "</td>";
                     }
@@ -103,7 +90,43 @@
                 echo "</tr>";
             }
             echo "</table>";
-            ?>
+            ?> 
+            <div class="btn">
+            <form action="?" method="get">
+                <span>西元</span>
+                <select name="year" id="">
+                    <?php
+                    for ($j = 100; $j >= 0; $j--) {
+                        $upY = $year - $j;
+                        echo "<option value='$upY'>" . $upY . "</option>";
+                    }
+                    echo "<option value='$year' selected>" . $year . "</option>";
+                    for ($i = 1; $i <= 100; $i++) {
+                        $nextY = $year + $i;
+                        echo "<option value='$nextY'>" . $nextY . "</option>";
+                    }
+                    ?>
+                </select>
+                <span>年</span>
+                <select name="month" id="">
+                    <?php
+                    for ($j = 1; $j <= $month - 1; $j++) {
+                        echo "<option value='$j'>" . $j . "</option>";
+                    }
+                    echo "<option value='$month' selected>" . $month . "</option>";
+                    for ($i = $month + 1; $i < 13; $i++) {
+                        echo "<option value='$i'>" . $i . "</option>";
+                    }
+                    ?>
+                </select>
+                <span>月</span>
+                <input type="submit" value="查詢">
+            </form>
+            <ul>
+                <li><a href="calendar.php?year=<?= $ylast ?>&month=<?= $mlast ?>">Last month</a></li>
+                <li><a href="calendar.php?year=<?= $ynext ?>&month=<?= $mnext ?>">Next month</a></li>
+            </ul>
+        </div>
 
     </div>
 
