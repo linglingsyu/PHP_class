@@ -1,0 +1,15 @@
+全年級三月份到課率統計表
+http://220.128.133.15/mackliu/bcsa/q1_set1.php
+
+SELECT 
+	left(`students`.`班級座號`,3) as "班級",
+    sum(`records`.`事假`) as "事假",
+    sum(`records`.`病假`) as "病假",
+    sum(`records`.`公假`) as "公假",
+    sum(`records`.`曠課`) as "曠課",
+    ((count(`students`.`班級座號`)*156)-sum(`records`.`事假`)-sum(`records`.`病假`)-sum(`records`.`公假`)-sum(`records`.`曠課`))/(count(`students`.`班級座號`)*156) as "到課率"
+FROM 
+	`students`,`records` 
+WHERE 
+	`students`.`班級座號` = `records`.`班級座號` && substring(`records`.`年月日`,4,1)="3"
+GROUP by left(`students`.`班級座號`,3)

@@ -27,11 +27,11 @@
     }
 
     ?>
-    <div class="bg">
-       <span class="bg_left"><?= $month?></span>
-       <span class="bg_mid"><?= $year?></span>
-       <span class="bg_right"><?= date('F', mktime(0, 0, 0, $month)) ?></span>
-    </div>
+  <div class="wrap">
+       <span class="bg_month"><?= $month?></span>
+       <span class="bg_yeard"><?= $year?></span>
+       <span class="bg_mkmonth"><?= date('F', mktime(0, 0, 0, $month)) ?></span>
+  </div>
     <div class="container">
         <?php
         $firstday = date("w", strtotime(date("$year-$month-01")));
@@ -91,8 +91,13 @@
             }
             echo "</table>";
             ?> 
+            
             <div class="btn">
+            <ul>
+            <li><a href="calendar.php?year=<?= $ylast ?>&month=<?= $mlast ?>">Last month</a></li>
             <form action="?" method="get">
+            </ul>
+                <div class="selec">
                 <span>西元</span>
                 <select name="year" id="">
                     <?php
@@ -122,8 +127,8 @@
                 <span>月</span>
                 <input type="submit" value="查詢">
             </form>
+            </div>
             <ul>
-                <li><a href="calendar.php?year=<?= $ylast ?>&month=<?= $mlast ?>">Last month</a></li>
                 <li><a href="calendar.php?year=<?= $ynext ?>&month=<?= $mnext ?>">Next month</a></li>
             </ul>
         </div>
